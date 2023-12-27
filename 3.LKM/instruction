@@ -1,0 +1,17 @@
+Don't work on last Kali version (today 26.12.2023), cant compile. Used WMware and 2 versions: img for VM and installed.
+Ubuntu 6.5.0-14-generic, installed on WMware, works. Need to install make, gcc, headers.
+
+Instrtuction:
+    1. 'sudo su'                    for root previlegies
+    2. 'make'                       for compiling
+
+    3. 'lsmod | grep lkm'           to check is module online (should show nothing)
+    4. 'dmesg | grep "Tomsk"'       to check info before loading module (should show nothing)
+
+    5. 'insmod lkm.ko'              loading module
+    6. 'lsmod | grep lkm'           to check is module online (should show message)
+    7. 'dmesg | grep "Tomsk"'       to check info while module working (should show "Welcome to the Tomsk State University!")
+
+    8. 'rmmod lkm.ko'               to remove module
+    9. 'lsmod | grep lkm'           to check is module online (should show nothing)
+    10.'dmesg | grep "Tomsk"'       to check info after removing module (should show 2 messages)
