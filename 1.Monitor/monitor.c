@@ -3,7 +3,7 @@
 
 pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
-int ready = 0;
+volatile int ready = 0;
 
 void *provider_func(void *arg)
 {
