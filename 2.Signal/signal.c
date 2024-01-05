@@ -67,15 +67,15 @@ int main()
     ////////////////////////////////////
     // registration of a signal handler
 	struct sigaction sa;
-	sigaction(SIGHUP, NULL, &sa);
-	sa.sa_handler = sighup_handler;
-	sa.sa_flags |= SA_RESTART;
-	sigaction(SIGHUP, &sa, NULL);
+	sigaction(SIGHUP, NULL, &sa);							// reset signal
+	sa.sa_handler = sighup_handler;							// specify the action to be associated with signum
+	sa.sa_flags |= SA_RESTART;							// setting up signal behavior
+	sigaction(SIGHUP, &sa, NULL);							// register signal
     ////////////////////////////////////
 
     /////////////////////////////////////////////
     // signal block
-	sigset_t mask;									//initial block mask
+	sigset_t mask;									//initial mask
 	sigset_t sighup_mask;
 	sigemptyset(&sighup_mask);
 	sigaddset(&sighup_mask, SIGHUP);
