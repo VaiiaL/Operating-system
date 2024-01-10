@@ -68,7 +68,7 @@ int main()
     // registration of a signal handler
 	struct sigaction sa;
 	sigaction(SIGHUP, NULL, &sa);							// reset signal
-	sa.sa_handler = sighup_handler;							// specify the action to be associated with sighum
+	sa.sa_handler = sighup_handler;							// specify the action to be associated with sighup
 	sa.sa_flags |= SA_RESTART;							// setting up signal behavior
 	sigaction(SIGHUP, &sa, NULL);							// register signal
     ////////////////////////////////////
